@@ -7,7 +7,6 @@ services:
     ports:
       - "8000:8000"
     volumes:
-      - ./.data:/home/dynamo/db  # Opcional: persiste os dados entre reinicializações
+      - ./.data:/home/dynamo/db
     environment:
       - JAVA_OPTS=-Djava.library.path=/home/dynamo/DynamoDBLocal_lib -Xmx512m -Xms256m
-    #command: "-jar DynamoDBLocal.jar -inMemory"  # Inicia o DynamoDB Local em memória
