@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  dynamodb-local:
+    image: amazon/dynamodb-local
+    container_name: dynamodb-local
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./.data:/home/dynamo/db  # Opcional: persiste os dados entre reinicializações
+    environment:
+      - JAVA_OPTS=-Djava.library.path=/home/dynamo/DynamoDBLocal_lib -Xmx512m -Xms256m
+    #command: "-jar DynamoDBLocal.jar -inMemory"  # Inicia o DynamoDB Local em memória
